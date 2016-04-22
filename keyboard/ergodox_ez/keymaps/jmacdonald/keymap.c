@@ -39,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LCTL,        KC_NO,        KC_NO,  KC_LEFT,KC_RGHT,
                                                       KC_NO,  KC_MPLY,
                                                               KC_NO,
-                               MT(MOD_LGUI, KC_QUOT), KC_UNDS,KC_LALT,
+                               MT(MOD_LGUI, KC_QUOT), KC_MINS,KC_LALT,
         // right hand
         KC_NO,       KC_6,   KC_7,   KC_8,   KC_9,   KC_0,    KC_BSPC,
         KC_F3,       KC_Y,   KC_U,   KC_I,   KC_O,   KC_P,    KC_BSLS,
@@ -48,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                              KC_UP,  KC_DOWN,KC_LBRC,KC_RBRC, KC_NO,
         KC_VOLD,     KC_VOLU,
         KC_F7,
-        KC_EQL,      KC_MINS,KC_SPC
+        KC_EQL,      KC_UNDS,KC_SPC
     ),
 };
 
