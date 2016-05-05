@@ -3,8 +3,7 @@
 #include "action_layer.h"
 
 #define BASE 0 // default layer
-#define SYMB 1 // symbols
-#define MDIA 2 // media keys
+#define FUNC 1 // function keys
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
@@ -18,13 +17,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|   [  |           |   ]  |------+------+------+------+------+--------|
  * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |  /   | RShift |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |LCtrl |      |      | Left | Right|                                       |  Up  | Down |   [  |   ]  |      |
+ *   |LCtrl | LAlt |      | Left | Right|                                       |  Up  | Down |   [  |   ]  |      |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |  F1  |  F2  |       |  F3  |  F4  |
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |      |      | Vol- |       | Vol+ |        |      |
- *                                 | '/Cmd|   -  |------|       |------|    _   |Space |
+ *                                 | '/Cmd|   -  |------|       |------|    _   |Spc/L1|
  *                                 |      |      | LAlt |       |  =   |        |      |
  *                                 `--------------------'       `----------------------'
  */
@@ -36,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,         KC_Q,         KC_W,   KC_E,   KC_R,   KC_T,   KC_LCBR,
         KC_ESC,         KC_A,         KC_S,   KC_D,   KC_F,   KC_G,
         KC_LSFT,        KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   KC_LBRC,
-        KC_LCTL,        KC_NO,        KC_NO,  KC_LEFT,KC_RGHT,
+        KC_LCTL,        KC_LALT,      KC_NO,  KC_LEFT,KC_RGHT,
                                                       KC_F1,  KC_F2,
                                                               KC_VOLD,
                                MT(MOD_LGUI, KC_QUOT), KC_MINS,KC_LALT,
@@ -48,13 +47,53 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                              KC_UP,  KC_DOWN,KC_LBRC,KC_RBRC, KC_NO,
         KC_F3,       KC_F4,
         KC_VOLU,
-        KC_EQL,      KC_UNDS,KC_SPC
+        KC_EQL,      KC_UNDS,LT(FUNC, KC_SPC)
     ),
+
+/* Keymap 1: Function Layer
+ *
+ * ,--------------------------------------------------.           ,--------------------------------------------------.
+ * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+ * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
+ * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+ * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |        |  F1  |  F2  |  F3  |  F4  |  F5  |------|           |------| CmdL |  F1  |  F2  |  F3  |  F4  |  CmdR  |
+ * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+ * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+ *   |      |      |      |      |      |                                       |      |      |      |      |      |
+ *   `----------------------------------'                                       `----------------------------------'
+ *                                        ,-------------.       ,-------------.
+ *                                        |      |      |       |      |      |
+ *                                 ,------|------|------|       |------+------+------.
+ *                                 |      |      |      |       |      |      |      |
+ *                                 |      |      |------|       |------|      |      |
+ *                                 |      |      |      |       |      |      |      |
+ *                                 `--------------------'       `--------------------'
+ */
+[FUNC] = KEYMAP(
+       // left hand
+       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+       KC_NO, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5,
+       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+                                        KC_NO, KC_NO,
+                                               KC_NO,
+                                 KC_NO, KC_NO, KC_NO,
+       // right hand
+       KC_NO, KC_NO,         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+       KC_NO, KC_NO,         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+              LGUI(KC_LEFT), KC_F1, KC_F2, KC_F3, KC_F4, LGUI(KC_RIGHT),
+       KC_NO, KC_NO,         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+                             KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+       KC_NO, KC_NO,
+       KC_NO,
+       KC_NO, KC_NO, KC_TRNS
+),
 };
 
-const uint16_t PROGMEM fn_actions[] = {
-    [1] = ACTION_LAYER_TAP_TOGGLE(SYMB)                // FN1 - Momentary Layer 1 (Symbols)
-};
+const uint16_t PROGMEM fn_actions[] = {};
 
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
