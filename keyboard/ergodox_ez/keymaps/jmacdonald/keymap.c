@@ -4,6 +4,7 @@
 
 #define BASE 0 // default layer
 #define FUNC 1 // function keys
+#define SYM  2 // symbol keys
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
@@ -47,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                              KC_UP,  KC_DOWN,KC_LBRC,KC_RBRC, KC_NO,
         KC_F3,       KC_F4,
         KC_VOLU,
-        KC_EQL,      KC_UNDS,KC_SPC
+        KC_EQL,      KC_UNDS,LT(SYM, KC_SPC)
     ),
 
 /* Keymap 1: Function/Ctrl Layer (non-function and special keys are Ctrl-qualified.
@@ -90,6 +91,48 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_NO, KC_NO,
        KC_NO,
        KC_NO, KC_NO, KC_NO
+),
+
+/* Keymap 2: Symbol Layer
+ *
+ * ,--------------------------------------------------.           ,--------------------------------------------------.
+ * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+ * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
+ * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+ * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |        |      |      |      |      |      |------|           |------|      |  [   |   ]  |      |      |        |
+ * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+ * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+ *   |      |      |      |      |      |                                       |      |      |      |      |      |
+ *   `----------------------------------'                                       `----------------------------------'
+ *                                        ,-------------.       ,-------------.
+ *                                        |      |      |       |      |      |
+ *                                 ,------|------|------|       |------+------+------.
+ *                                 |      |      |      |       |      |      |      |
+ *                                 |      |      |------|       |------|      |      |
+ *                                 |      |      |      |       |      |      |      |
+ *                                 `--------------------'       `--------------------'
+ */
+[SYM] = KEYMAP(
+       // left hand
+       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+                                          KC_NO, KC_NO,
+                                                 KC_NO,
+                                   KC_NO, KC_NO, KC_NO,
+       // right hand
+       KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
+       KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
+              KC_NO,   KC_LBRC, KC_RBRC, KC_NO,    KC_NO,   KC_NO,
+       KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
+                       KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
+       KC_NO, KC_NO,
+       KC_NO,
+       KC_NO, KC_NO, KC_TRNS
 ),
 };
 
