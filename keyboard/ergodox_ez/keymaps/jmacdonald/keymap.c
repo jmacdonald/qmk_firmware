@@ -21,7 +21,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   |LCtrl | LAlt |      | Left | Right|                                       |  Up  | Down |   [  |   ]  |      |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        |  F1  |Ply/Ps|       |  F3  |  F4  |
+ *                                        |  F1  |Ply/Ps|       | Del  |  F4  |
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |      |      | Vol- |       | Vol+ |        |      |
  *                                 | '/L1 |  "   |------|       |------|    _   | Spc  |
@@ -46,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                      KC_H,   KC_J,   KC_K,   KC_L,   KC_SCLN, KC_ENTER,
         KC_RPRN,     KC_N,   KC_M,   KC_COMM,KC_DOT, KC_SLSH, KC_RSFT,
                              KC_UP,  KC_DOWN,KC_LBRC,KC_RBRC, KC_NO,
-        KC_F3,       KC_F4,
+        KC_DEL,      KC_F4,
         KC_VOLU,
         KC_EQL,      KC_UNDS,LT(SYM, KC_SPC)
     ),
