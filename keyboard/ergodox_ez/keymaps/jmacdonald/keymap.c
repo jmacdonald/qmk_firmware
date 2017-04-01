@@ -2,9 +2,10 @@
 #include "debug.h"
 #include "action_layer.h"
 
-#define BASE 0 // default layer
-#define CTRL 1 // function keys
-#define SYM  2 // symbol keys
+#define BASE   0 // default layer
+#define CTRL   1 // function keys
+#define SYM    2 // symbol keys
+#define NUMPAD 3 // symbol keys
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
@@ -25,7 +26,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |      |      | Vol- |       | Vol+ |        |      |
  *                                 | '/L1 |  "   |------|       |------|    _   |Spc/L2|
- *                                 |      |      |  =   |       |  =   |        |      |
+ *                                 |      |      |  =   |       |NUMPAD|        |      |
  *                                 `--------------------'       `----------------------'
  */
 // If it accepts an argument (i.e, is a function), it doesn't need KC_.
@@ -48,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                              KC_UP,  KC_DOWN,KC_LBRC,KC_RBRC, KC_NO,
         KC_DEL,      KC_F4,
         KC_VOLU,
-        KC_EQL,      KC_UNDS,LT(SYM, KC_SPC)
+        TG(NUMPAD),  KC_UNDS,LT(SYM, KC_SPC)
     ),
 
 /* Keymap 1: Ctrl Layer (non-special keys are Ctrl-qualified).
@@ -133,6 +134,50 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_NO, KC_NO,
        KC_NO,
        KC_NO, KC_NO, KC_TRNS
+),
+
+/* Keymap 3: Numpad Layer
+ *
+ * ,--------------------------------------------------.           ,--------------------------------------------------.
+ * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+ * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
+ * |        |      |      |      |      |      |      |           |      |      |   7  |   8  |   9  |      |        |
+ * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |        |      |      |      |      |      |------|           |------|      |   4  |   5  |   6  |      |        |
+ * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |        |      |      |      |      |      |      |           |      |      |   1  |   2  |   3  |      |        |
+ * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+ *   |      |      |      |      |      |                                       |      |      |      |      |      |
+ *   `----------------------------------'                                       `----------------------------------'
+ *                                        ,-------------.       ,-------------.
+ *                                        |      |      |       |      |      |
+ *                                 ,------|------|------|       |------+------+------.
+ *                                 |      |      |      |       |      |      |      |
+ *                                 |      |      |------|       |------|   0  |      |
+ *                                 |      |      |      |       |      |      |      |
+ *                                 `--------------------'       `--------------------'
+ */
+[NUMPAD] = KEYMAP(
+       // left hand
+       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+
+                                           KC_NO,   KC_NO,
+                                                    KC_NO,
+                                    KC_NO, KC_NO,   KC_NO,
+       // right hand
+       KC_NO,   KC_NO,   KC_NO,  KC_NO,  KC_NO,  KC_NO,   KC_BSPC,
+       KC_NO,   KC_NO,   KC_7,   KC_8,   KC_9,   KC_NO,   KC_NO,
+                KC_NO,   KC_4,   KC_5,   KC_6,   KC_NO,   KC_NO,
+       KC_NO,   KC_NO,   KC_1,   KC_2,   KC_3,   KC_NO,   KC_NO,
+                         KC_NO,  KC_NO,  KC_NO,  KC_NO,   KC_NO,
+
+       KC_NO,   KC_NO,
+       KC_NO,
+       KC_TRNS, KC_0, KC_SPC
 ),
 };
 
