@@ -60,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * | Esc    |   A  |   S  |   D  |   F  |   G  |------|           |------| Left | Down |  Up  | Right|   ;  |  Retn  |
  * |--------+------+------+------+------+------|   (  |           |   )  |------+------+------+------+------+--------|
- * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |  /   | RShift |
+ * | LShift |   Z  |   X  |   C  |Shf-In|   B  |      |           |      |   N  |   M  |   ,  |   .  |  /   | RShift |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |LCtrl | LAlt |      | Left | Right|                                       |  Up  | Down |   [  |   ]  |      |
  *   `----------------------------------'                                       `----------------------------------'
@@ -77,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         LCTL(KC_GRV),   LCTL(KC_1),   LCTL(KC_2),   LCTL(KC_3),   LCTL(KC_4),   LCTL(KC_5),   LCTL(KC_6),
         LCTL(KC_TAB),   LCTL(KC_Q),   LCTL(KC_W),   LCTL(KC_E),   LCTL(KC_R),   LCTL(KC_T),   KC_LCBR,
         KC_ESC,         LCTL(KC_A),   LCTL(KC_S),   LCTL(KC_D),   LCTL(KC_F),   LCTL(KC_G),
-        KC_LSFT,        LCTL(KC_Z),   LCTL(KC_X),   LCTL(KC_C),   LCTL(KC_V),   LCTL(KC_B),   KC_LPRN,
+        KC_LSFT,        LCTL(KC_Z),   LCTL(KC_X),   LCTL(KC_C),   LSFT(KC_INS), LCTL(KC_B),   KC_LPRN,
         KC_LCTL,        KC_LALT,      KC_NO,  KC_LEFT,KC_RGHT,
                                                        KC_NO, KC_NO,
                                                               KC_NO,
