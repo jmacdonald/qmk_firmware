@@ -3,7 +3,7 @@
 #include "action_layer.h"
 
 #define BASE 0 // default layer
-#define FUNC 1 // function keys
+#define CTRL 1 // function keys
 #define SYM  2 // symbol keys
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -39,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LCTL,        KC_LALT,      KC_NO,  KC_LEFT,KC_RGHT,
                                                       KC_F1,  KC_MPLY,
                                                               KC_VOLD,
-                             LT(FUNC, KC_QUOT), LSFT(KC_QUOT),KC_EQL,
+                             LT(CTRL, KC_QUOT), LSFT(KC_QUOT),KC_EQL,
         // right hand
         KC_7,        KC_8,   KC_9,   KC_0,   KC_MINS,KC_EQL,  KC_BSPC,
         KC_RCBR,     KC_Y,   KC_U,   KC_I,   KC_O,   KC_P,    KC_BSLS,
@@ -51,10 +51,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_EQL,      KC_UNDS,LT(SYM, KC_SPC)
     ),
 
-/* Keymap 1: Function/Ctrl Layer (non-function and special keys are Ctrl-qualified.
+/* Keymap 1: Ctrl Layer (non-special keys are Ctrl-qualified).
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |   `    |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |           |  F7  |  F8  |  F9  |  F10 |   -  |   =  |  Bkspc |
+ * |   `    |   1  |   2  |   3  |   4  |   5  |   6  |           |   7  |   8  |   9  |  10  |   -  |   =  |  Bkspc |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * | Tab    |   Q  |   W  |   E  |   R  |   T  |   {  |           |   }  |   Y  |   U  |   I  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
@@ -68,13 +68,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                        |      |      |       |      |      |
  *                                 ,------|------|------|       |------+------+------.
  *                                 |      |      |      |       |      |      |      |
- *                                 |      |      |------|       |------|      |      |
+ *                                 |      |      |------|       |------|      |Space |
  *                                 |      |      |      |       |      |      |      |
  *                                 `--------------------'       `--------------------'
  */
-[FUNC] = KEYMAP(
+[CTRL] = KEYMAP(
        // left hand
-        LCTL(KC_GRV),   KC_F1,        KC_F2,        KC_F3,        KC_F4,        KC_F5,        KC_F6,
+        LCTL(KC_GRV),   LCTL(KC_1),   LCTL(KC_2),   LCTL(KC_3),   LCTL(KC_4),   LCTL(KC_5),   LCTL(KC_6),
         LCTL(KC_TAB),   LCTL(KC_Q),   LCTL(KC_W),   LCTL(KC_E),   LCTL(KC_R),   LCTL(KC_T),   KC_LCBR,
         KC_ESC,         LCTL(KC_A),   LCTL(KC_S),   LCTL(KC_D),   LCTL(KC_F),   LCTL(KC_G),
         KC_LSFT,        LCTL(KC_Z),   LCTL(KC_X),   LCTL(KC_C),   LCTL(KC_V),   LCTL(KC_B),   KC_LPRN,
@@ -83,14 +83,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                               KC_NO,
                                               KC_TRNS, KC_NO, KC_NO,
        // right hand
-       KC_F7,       KC_F8,  KC_F9,  KC_F10, KC_MINS, KC_EQL,  KC_BSPC,
+       LCTL(KC_7),  LCTL(KC_8),   LCTL(KC_9),   LCTL(KC_0),   KC_MINS,       KC_EQL,        KC_BSPC,
        KC_RCBR,     LCTL(KC_Y),   LCTL(KC_U),   LCTL(KC_I),   LCTL(KC_O),    LCTL(KC_P),    KC_BSLS,
                     KC_LEFT,      KC_DOWN,      KC_UP,        KC_RIGHT,      LCTL(KC_SCLN), LCTL(KC_ENTER),
        KC_RPRN,     LCTL(KC_N),   LCTL(KC_M),   LCTL(KC_COMM),LCTL(KC_DOT),  LCTL(KC_SLSH), KC_RSFT,
                                   KC_UP,        KC_DOWN,      LCTL(KC_LBRC), LCTL(KC_RBRC), KC_NO,
        KC_NO, KC_NO,
        KC_NO,
-       KC_NO, KC_NO, KC_NO
+       KC_NO, KC_NO, LCTL(KC_SPC)
 ),
 
 /* Keymap 2: Symbol Layer
