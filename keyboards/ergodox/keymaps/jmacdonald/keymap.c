@@ -19,7 +19,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|   (  |           |   )  |------+------+------+------+------+--------|
  * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |  /   | RShift |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |LCtrl | LAlt |      | Left | Right|                                       |  Up  | Down |   [  |   ]  |      |
+ *   |LCtrl | LGui | LAlt | Left | Right|                                       |  Up  | Down |   [  |   ]  |      |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |  F1  |Ply/Ps|       | Del  |  F4  |
@@ -37,10 +37,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,         KC_Q,         KC_W,   KC_E,   KC_R,   KC_T,   KC_LCBR,
         KC_ESC,         KC_A,         KC_S,   KC_D,   KC_F,   KC_G,
         KC_LSFT,        KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   KC_LPRN,
-        KC_LCTL,        KC_LALT,      KC_NO,  KC_LEFT,KC_RGHT,
+        KC_LCTL,        KC_LGUI,      KC_LALT,KC_LEFT,KC_RGHT,
                                                       KC_F1,  KC_MPLY,
                                                               KC_VOLD,
-                      LT(CTRL, KC_QUOT), SFT_T(LSFT(KC_QUOT)),KC_EQL,
+                      LT(CTRL, KC_QUOT), LSFT(KC_QUOT),KC_EQL,
         // right hand
         KC_7,        KC_8,   KC_9,   KC_0,   KC_MINS,KC_EQL,  KC_BSPC,
         KC_RCBR,     KC_Y,   KC_U,   KC_I,   KC_O,   KC_P,    KC_BSLS,
